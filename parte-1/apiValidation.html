@@ -4,33 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Validació</title>
+    <title>API de Validación</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="script.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <form name="form_api_valid" novalidate>
+<body class="container mt-5">
+    <h1 class="text-center mb-5">API de Validación JS</h1>
+
+    <div id="alertBox" class="alert alert-custom" role="alert"></div>
+
+    <form id="form_api_valid" novalidate>
         <div class="card">
             <div class="card-header">
-                <label for="age">Mayor 18 años</label>
+                <label class="form-label" for="age">Mayor 18 años</label>
             </div>
             <div class="card-body">
-                <input type="number" id="ageInput" />
-                <input type="button" class="btn btn-primary" value="Comprobar" />
+                <input class="form-control" type="number" id="ageInput" required/>
+                <input type="button" class="btn btn-primary mt-2" onclick="validateAge()" value="Comprobar" />
             </div>
         </div>
 
-        <div class="card">
+        <div class="card mt-4">
             <div class="card-header">
-                <label>Formato DD-MM-AAAA<label>
+                <label class="form-label">Formato DD-MM-AAAA<label>
             </div>
             <div class="card-body">
-                <input type="text" id="dateInput" />
-                <input type="button" class="btn btn-primary" value="Comprobar" />
+                <input class="form-control" type="text" id="dateInput" placeholder="01-01-2025" required/>
+                <input type="button" class="btn btn-primary mt-2" onclick="validateDate()" value="Comprobar" />
             </div>
         </div>
     </form>
