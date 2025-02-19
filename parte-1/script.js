@@ -74,9 +74,9 @@ document.querySelectorAll("input[name='chk']").forEach(chk => {
 });
 
 document.getElementById("multi").addEventListener("change", function () {
-    let opcionesSeleccionadas = Array.from(this.options).filter(option => option.selected).length;
-    this.style.backgroundColor = opcionesSeleccionadas === 2 ? "#d4edda" : "#f8d7da";
-    showAlert(`Has seleccionado ${opcionesSeleccionadas} opciones`, opcionesSeleccionadas === 2 ? "success" : "error");
+    let selectedOptions = Array.from(this.options).filter(option => option.selected).length;
+    this.style.backgroundColor = selectedOptions === 2 ? "#d4edda" : "#f8d7da";
+    showAlert(`Has seleccionado ${selectedOptions} opciones`, selectedOptions === 2 ? "success" : "error");
 });
 
 function validarFormulario() {
@@ -84,14 +84,14 @@ function validarFormulario() {
     let email = document.getElementById("email");
     let checkboxes = document.querySelectorAll("input[name='chk']:checked").length;
     let select = document.getElementById("multi");
-    let opcionesSeleccionadas = Array.from(select.options).filter(option => option.selected).length;
+    let selectedOptions = Array.from(select.options).filter(option => option.selected).length;
 
-    if (!texto.checkValidity() || !email.checkValidity() || checkboxes !== 2 || opcionesSeleccionadas !== 2) {
-        showAlert("Por favor, corrige los errores antes de enviar", "error");
+    if (!texto.checkValidity() || !email.checkValidity() || checkboxes !== 2 || selectedOptions !== 2) {
+        showAlert("Por favor, corrige los errores antes de enviar.", "error");
         return;
     }
 
-    showAlert("Formulario enviado correctamente", "success");
+    showAlert("Formulario enviado correctamente.", "success");
 }
 
 // ALERT
